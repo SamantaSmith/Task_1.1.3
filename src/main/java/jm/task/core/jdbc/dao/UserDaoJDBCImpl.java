@@ -33,7 +33,9 @@ public class UserDaoJDBCImpl implements UserDao {
             e.printStackTrace();
             dbConnection.rollback();
         }
-        dbConnection.setAutoCommit(false);
+        finally {
+            dbConnection.setAutoCommit(true);
+        }
     }
 
     public void dropUsersTable() throws SQLException {
@@ -49,7 +51,9 @@ public class UserDaoJDBCImpl implements UserDao {
             e.printStackTrace();
             dbConnection.rollback();
         }
-        dbConnection.setAutoCommit(false);
+        finally {
+            dbConnection.setAutoCommit(true);
+        }
 
     }
 
@@ -73,7 +77,9 @@ public class UserDaoJDBCImpl implements UserDao {
             e.printStackTrace();
             dbConnection.rollback();
         }
-        dbConnection.setAutoCommit(false);
+        finally {
+            dbConnection.setAutoCommit(true);
+        }
     }
 
     public void removeUserById(long id) throws SQLException {
@@ -92,7 +98,9 @@ public class UserDaoJDBCImpl implements UserDao {
             e.printStackTrace();
             dbConnection.rollback();
         }
-        dbConnection.setAutoCommit(false);
+        finally {
+            dbConnection.setAutoCommit(true);
+        }
     }
 
     public List<User> getAllUsers() throws SQLException {
@@ -120,8 +128,10 @@ public class UserDaoJDBCImpl implements UserDao {
         } catch (SQLException e) {
             e.printStackTrace();
             dbConnection.rollback();
+        } finally {
+            dbConnection.setAutoCommit(true);
         }
-        dbConnection.setAutoCommit(false);
+
         return users;
     }
 
@@ -141,6 +151,8 @@ public class UserDaoJDBCImpl implements UserDao {
             e.printStackTrace();
             dbConnection.rollback();
         }
-        dbConnection.setAutoCommit(false);
+        finally {
+            dbConnection.setAutoCommit(true);
+        }
     }
 }

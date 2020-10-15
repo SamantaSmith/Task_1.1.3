@@ -67,6 +67,7 @@ public class Util {
                 settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL8Dialect");
                 settings.put(Environment.SHOW_SQL, "true");
                 settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
+                settings.put(Environment.AUTOCOMMIT, false);
                 configuration.setProperties(settings);
                 configuration.addAnnotatedClass(User.class);
 

@@ -1,5 +1,6 @@
 package jm.task.core.jdbc;
 
+import jm.task.core.jdbc.dao.UserDaoHibernateImpl;
 import jm.task.core.jdbc.dao.UserDaoJDBCImpl;
 import jm.task.core.jdbc.util.Util;
 
@@ -12,16 +13,24 @@ public class Main {
 
         Util.getDbConnection();
         UserDaoJDBCImpl daoJDBC = new UserDaoJDBCImpl();
+        UserDaoHibernateImpl daoHibernate = new UserDaoHibernateImpl();
 
-
-        daoJDBC.createUsersTable();
-        daoJDBC.saveUser("Первый", "Игрок", (byte) 14);
-        daoJDBC.saveUser("Второй", "Игрок", (byte) 24);
-        daoJDBC.saveUser("Третий", "Игрок", (byte) 34);
-        daoJDBC.saveUser("Четвертый", "Игрок", (byte) 44);
-        daoJDBC.getAllUsers();
+        daoHibernate.createUsersTable();
+        daoHibernate.saveUser("PAlex", "PIvanov", (byte) 14);
+        daoHibernate.saveUser("Mamix", "PIvanov", (byte) 14);
+        daoHibernate.getAllUsers();
+        daoHibernate.cleanUsersTable();
+        //daoHibernate.removeUserById(3);
+        //daoHibernate.dropUsersTable();
+        //daoJDBC.saveUser("Первый", "Игрок", (byte) 14);
+        //daoJDBC.saveUser("Второй", "Игрок", (byte) 24);
+        //daoJDBC.saveUser("Третий", "Игрок", (byte) 34);
+        //daoJDBC.saveUser("Четвертый", "Игрок", (byte) 44);
+        //daoJDBC.getAllUsers();
         //daoJDBC.cleanUsersTable();
         //daoJDBC.dropUsersTable();
+
+        //Util.getSessionFactory();
     }
 
 

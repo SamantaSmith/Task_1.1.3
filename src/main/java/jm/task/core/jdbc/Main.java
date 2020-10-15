@@ -20,8 +20,8 @@ public class Main {
         daoJDBC.saveUser("Третий", "Игрок", (byte) 34);
         daoJDBC.saveUser("Четвертый", "Игрок", (byte) 44);
         daoJDBC.getAllUsers();
-        daoJDBC.cleanUsersTable();
-        daoJDBC.dropUsersTable();
+        //daoJDBC.cleanUsersTable();
+        //daoJDBC.dropUsersTable();
     }
 
 
